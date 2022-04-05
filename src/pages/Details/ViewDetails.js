@@ -14,6 +14,7 @@ const DashboardChildren = ({ width, height }) => {
 
       <div style={{ marginTop: "20px" }}>
         <EnhancedTable />
+
       </div>
     </div>
   )

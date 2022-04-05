@@ -11,8 +11,11 @@ import { makeStyles } from "@material-ui/core/styles";
 import { TableSortLabel } from "@mui/material";
 import Checkbox from '@mui/material/Checkbox';
 
+import { Button } from "../Common/Button/Button.js";
 import Image1 from '../../assets/image 5.png';
 import Image2 from '../../assets/image 6.png';
+
+import UploadPopup from "../Common/popup";
 export const ProductHeader = [
   { name: "Products ID", key: "id" },
   { name: "Name", key: "name" },
@@ -57,6 +60,7 @@ export default function EnhancedTable() {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
   const [productImges, setProductImages] = React.useState(ProductImages);
+  const [action, setAction] = React.useState("View");
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -145,12 +149,109 @@ export default function EnhancedTable() {
             <div style={{
               border: "1px solid #F0F0F0", margin: "10px", width: "15%", display: "inline-table"
             }}>
-              <Checkbox style={{ float: "left" }} checked={value.flag} onClick={e => callClick(value.id)} />
-              <br></br>
+              {action == "View" ? null :
+                <Checkbox style={{ float: "left" }} checked={value.flag} onClick={e => callClick(value.id)} />
+              }<br></br>
               <img src={value.image} style={{ width: "180px" }} />
             </div>
           ))}
         </div>
+        {action == "View" ?
+          <>
+            <Button
+              width="200px"
+              height="60px"
+              margin="28px 15px 0 32px"
+              background="#1E4597"
+              borderRadius="0px"
+              text="Edit"
+              onClick={{
+                event: "save",
+                fn: () => {
+                  setAction("Edit")
+                  // history.push(`/`);
+                  // history.push({ pathname: "/", state: { page: dashboardPage } })
+
+                  // history.goBack();
+                },
+                // fn: () => {
+                //   // history.goBack();
+                // },
+              }}
+              icon="false"
+            ></Button>
+            {/* <Button
+              width="200px"
+              height="60px"
+              margin="28px 15px 0 32px"
+              background="#1E4597"
+              borderRadius="0px"
+              text="Delete"
+              onClick={{
+                event: "save",
+                fn: () => {
+                  setAction("Delete")
+                  // history.push(`/`);
+                  // history.push({ pathname: "/", state: { page: dashboardPage } })
+
+                  // history.goBack();
+                },
+                // fn: () => {
+                //   // history.goBack();
+                // },
+              }}
+              icon="false"
+            ></Button> */}
+          </> : action == "Edit" ? <> <Button
+            width="200px"
+            height="60px"
+            margin="28px 15px 0 32px"
+            background="#1E4597"
+            borderRadius="0px"
+            text="Delete"
+            onClick={{
+              event: "save",
+              fn: () => {
+                setAction("View")
+                // history.push(`/`);
+                // history.push({ pathname: "/", state: { page: dashboardPage } })
+
+                // history.goBack();
+              },
+              // fn: () => {
+              //   // history.goBack();
+              // },
+            }}
+            icon="false"
+          ></Button><UploadPopup
+              // parentCallback={(e) => handleCallback(e)}
+              type="Delete"
+              status="true"
+            /> </> : null}
+
+        {action == "Edit" ?
+          <Button
+            width="200px"
+            height="60px"
+            margin="28px 15px 0 32px"
+            background="#1E4597"
+            borderRadius="0px"
+            text="Update"
+            onClick={{
+              event: "save",
+              fn: () => {
+                setAction("View")
+                // history.push(`/`);
+                // history.push({ pathname: "/", state: { page: dashboardPage } })
+
+                // history.goBack();
+              },
+              // fn: () => {
+              //   // history.goBack();
+              // },
+            }}
+            icon="false"
+          ></Button> : null}
       </Paper>
 
     </>

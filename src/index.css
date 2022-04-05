@@ -9,3 +9,58 @@ body {
 code {
   font-family: "Poppins", sans-serif;
 }
+
+.MuiPaginationItem-page.MuiPaginationItem-textSecondary {
+  color: #888888;
+  font-weight: bold;
+  font-size: 16px;
+}
+.MuiCardContent-root {
+  padding-bottom: 10px !important;
+}
+.MuiPaginationItem-textSecondary.Mui-selected {
+  color: #fff;
+  background-color: #006cb7 !important;
+}
+.ant-layout {
+  display: flex;
+  flex: auto;
+  flex-direction: column;
+  background: #f0f2f5;
+  height: auto !important;
+}
+.MuiDropzoneArea-icon {
+  background-image: url("./assets/dropImage.png");
+  background-repeat: no-repeat;
+  color: transparent !important;
+}
+
+.MuiDropzoneArea-root {
+  border: solid 1px #aaaaaa !important;
+  border-radius: 20px !important;
+  border-style: dashed !important;
+  min-height: 143px !important;
+  background-color: rgba(242, 246, 255, 0.68) !important;
+  /* background-image: url("./assets/dropImage.png"); */
+  background-repeat: no-repeat;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+}
+
+.MuiDropzoneArea-text {
+  margin-top: 10px !important;
+}
+.MuiTypography-h5 {
+  font-size: 1rem !important;
+}
+.ant-input-affix-wrapper > input.ant-input {
+  color: #b2b2b2 !important;
+  font-size: 15px !important;
+}
+.ant-modal-content {
+  margin-right: 10px;
+}
+
+.MuiPaper-elevation1 {
+  box-shadow: none !important;
+}
