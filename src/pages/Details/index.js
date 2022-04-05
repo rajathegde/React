@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import DashboardChildren from './DashboardChildren';
+import DashboardChildren from './ViewDetails';
 import Navbar from './Navbar'
 import Sidebar from './Sidebar'
 
