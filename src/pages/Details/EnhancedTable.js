@@ -157,7 +157,7 @@ export default function EnhancedTable() {
           ))}
         </div>
         {action == "View" ?
-          <>
+          <div style={{ textAlign: "center" }}>
             <Button
               width="200px"
               height="60px"
@@ -202,7 +202,7 @@ export default function EnhancedTable() {
               }}
               icon="false"
             ></Button> */}
-          </> : action == "Edit" ? <> <Button
+          </div> : action == "Edit" ? <div style={{ textAlign: "center" }}> <Button
             width="200px"
             height="60px"
             margin="28px 15px 0 32px"
@@ -227,31 +227,32 @@ export default function EnhancedTable() {
               // parentCallback={(e) => handleCallback(e)}
               type="Delete"
               status="true"
-            /> </> : null}
+            /> </div> : null}
 
         {action == "Edit" ?
-          <Button
-            width="200px"
-            height="60px"
-            margin="28px 15px 0 32px"
-            background="#1E4597"
-            borderRadius="0px"
-            text="Update"
-            onClick={{
-              event: "save",
-              fn: () => {
-                setAction("View")
-                // history.push(`/`);
-                // history.push({ pathname: "/", state: { page: dashboardPage } })
+          <div style={{ textAlign: "center" }}>
+            <Button
+              width="200px"
+              height="60px"
+              margin="28px 15px 0 32px"
+              background="#1E4597"
+              borderRadius="0px"
+              text="Update"
+              onClick={{
+                event: "save",
+                fn: () => {
+                  setAction("View")
+                  // history.push(`/`);
+                  // history.push({ pathname: "/", state: { page: dashboardPage } })
 
-                // history.goBack();
-              },
-              // fn: () => {
-              //   // history.goBack();
-              // },
-            }}
-            icon="false"
-          ></Button> : null}
+                  // history.goBack();
+                },
+                // fn: () => {
+                //   // history.goBack();
+                // },
+              }}
+              icon="false"
+            ></Button></div> : null}
       </Paper>
 
     </>

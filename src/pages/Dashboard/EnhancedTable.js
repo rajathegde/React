@@ -17,7 +17,7 @@ export const ProductHeader = [
   { name: "Make", key: "make" },
   { name: "Model", key: "model" },
   { name: "Image Count", key: "count" },
-  { name: "Actions", key: "actions" },
+  { name: "Action", key: "actions" },
 ];
 
 export const ProductData = [
@@ -96,7 +96,7 @@ export default function EnhancedTable() {
                           >
                               View
                           </span> </Link>
-                          <span
+                          {/* <span
                             style={{
                               cursor: "pointer",
                               marginLeft: "20px",
@@ -104,8 +104,8 @@ export default function EnhancedTable() {
                           >
                             {" "}
                             Edit
-                          </span>
-                          <span
+                          </span> */}
+                          {/* <span
                             style={{
                               cursor: "pointer",
                               marginLeft: "20px",
@@ -113,7 +113,7 @@ export default function EnhancedTable() {
                           >
                             {" "}
                             Delete
-                          </span>
+                          </span> */}
                         </TableCell>
                       ) : (
                           <>

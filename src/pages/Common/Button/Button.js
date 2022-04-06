@@ -7,7 +7,8 @@ const StyledButton = styled.button`
 	border: ${(props) => props.border || "none"};
 	font-size: 16px;
 	font-weight: 700;
-	float:left;
+	text-align:center;
+	// float:left;
 	margin: 20px;
 	padding: ${(props) => (props.padding ? props.padding : "0")};
 	font-stretch: normal;
