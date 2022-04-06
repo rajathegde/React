@@ -149,9 +149,9 @@ export default function EnhancedTable() {
             <div style={{
               border: "1px solid #F0F0F0", margin: "10px", width: "15%", display: "inline-table"
             }}>
-              {action == "View" ? null :
+              {action == "View" ? null : action == "Delete" ?
                 <Checkbox style={{ float: "left" }} checked={value.flag} onClick={e => callClick(value.id)} />
-              }<br></br>
+                : null}<br></br>
               <img src={value.image} style={{ width: "180px" }} />
             </div>
           ))}
@@ -168,7 +168,28 @@ export default function EnhancedTable() {
               onClick={{
                 event: "save",
                 fn: () => {
-                  setAction("Edit")
+                  setAction("Delete")
+                  // history.push(`/`);
+                  // history.push({ pathname: "/", state: { page: dashboardPage } })
+
+                  // history.goBack();
+                },
+                // fn: () => {
+                //   // history.goBack();
+                // },
+              }}
+              icon="false"
+            ></Button> <Button
+              width="200px"
+              height="60px"
+              margin="28px 15px 0 32px"
+              background="#1E4597"
+              borderRadius="0px"
+              text="Upload"
+              onClick={{
+                event: "save",
+                fn: () => {
+                  setAction("Add")
                   // history.push(`/`);
                   // history.push({ pathname: "/", state: { page: dashboardPage } })
 
@@ -202,7 +223,7 @@ export default function EnhancedTable() {
               }}
               icon="false"
             ></Button> */}
-          </div> : action == "Edit" ? <div style={{ textAlign: "center" }}> <Button
+          </div> : action == "Delete" ? <div style={{ textAlign: "center" }}> <Button
             width="200px"
             height="60px"
             margin="28px 15px 0 32px"
@@ -223,13 +244,13 @@ export default function EnhancedTable() {
               // },
             }}
             icon="false"
-          ></Button><UploadPopup
-              // parentCallback={(e) => handleCallback(e)}
-              type="Delete"
-              status="true"
-            /> </div> : null}
+          ></Button></div> : action == "Add" ? <UploadPopup
+            // parentCallback={(e) => handleCallback(e)}
+            type="Delete"
+            status="true"
+          /> : null}
 
-        {action == "Edit" ?
+        {action == "Add" ?
           <div style={{ textAlign: "center" }}>
             <Button
               width="200px"
