@@ -244,11 +244,12 @@ export default function EnhancedTable() {
               // },
             }}
             icon="false"
-          ></Button></div> : action == "Add" ? <UploadPopup
-            // parentCallback={(e) => handleCallback(e)}
-            type="Delete"
-            status="true"
-          /> : null}
+          ></Button></div> : action == "Add" ? <div style={{ textAlign: "center" }}>
+            <UploadPopup
+              // parentCallback={(e) => handleCallback(e)}
+              type="Delete"
+              status="true"
+            /> </div> : null}
 
         {action == "Add" ?
           <div style={{ textAlign: "center" }}>
