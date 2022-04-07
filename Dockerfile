@@ -11,4 +11,4 @@ RUN ls
 #COPY frontend/build /app
 RUN yarn global add serve
 #WORKDIR /build
-CMD ["serve","-s","build","-p","8081"]
+CMD ["serve","-s","build","-p","8080"]
