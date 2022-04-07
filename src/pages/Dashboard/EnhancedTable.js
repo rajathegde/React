@@ -21,11 +21,11 @@ export const ProductHeader = [
 ];
 
 export const ProductData = [
-  { id: "1", name: "vdvsyd", make: "make", model: "model", count: "count" },
-  { id: "1", name: "vdvsyd", make: "make", model: "model", count: "count" },
-  { id: "1", name: "vdvsyd", make: "make", model: "model", count: "count" },
-  { id: "1", name: "vdvsyd", make: "make", model: "model", count: "count" },
-  { id: "1", name: "vdvsyd", make: "make", model: "model", count: "count" },
+  { id: "PR739893", name: "HORN", make: "TVS", model: "2019", count: "5" },
+  { id: "PR739893", name: "HORN", make: "TVS", model: "2019", count: "5" },
+  { id: "PR739893", name: "HORN", make: "TVS", model: "2019", count: "5" },
+  { id: "PR739893", name: "HORN", make: "TVS", model: "2019", count: "5" },
+  { id: "PR739893", name: "HORN", make: "TVS", model: "2019", count: "5" },
 
 ];
 

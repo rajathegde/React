@@ -2,7 +2,7 @@ import React from 'react'
 import Filter from '../../assets/filter.png';
 import Search from '../../assets/search.png';
 import { Table } from '@mui/material';
-import EnhancedTable from './EnhancedTable';
+import Details from './Details';
 
 const DashboardChildren = ({ width, height }) => {
   return (
@@ -13,7 +13,7 @@ const DashboardChildren = ({ width, height }) => {
       </div>
 
       <div style={{ marginTop: "20px" }}>
-        <EnhancedTable />
+        <Details />
 
       </div>
     </div>

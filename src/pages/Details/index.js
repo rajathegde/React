@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import DashboardChildren from './ViewDetails';
-import Navbar from './Navbar'
-import Sidebar from './Sidebar'
+import Navbar from '../Dashboard/Navbar'
+import Sidebar from '../Dashboard/Sidebar'
 
 const Dashboard = () => {
 

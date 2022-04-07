@@ -23,7 +23,9 @@ const Navbar = () => {
         }}>
 
         </div>
-        <p>Welcome Johnson</p>
+        <div style={{
+          color: "#AAAAAA", fontWeight: 600, fontSize: "16px"
+        }}>Welcome Johnson</div>
       </div>
     </div>
   )
