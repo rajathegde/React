@@ -10,22 +10,23 @@ import TableRow from "@mui/material/TableRow";
 import { makeStyles } from "@material-ui/core/styles";
 import { TableSortLabel } from "@mui/material";
 
+import { Link } from "react-router-dom";
 export const ProductHeader = [
-  { name: "Products id", key: "id" },
+  { name: "Products ID", key: "id" },
   { name: "Name", key: "name" },
   { name: "Make", key: "make" },
-  { name: "Modal", key: "modal" },
+  { name: "Model", key: "model" },
   { name: "Image Count", key: "count" },
-  { name: "Actions", key: "actions" },
+  { name: "Action", key: "actions" },
 ];
 
 export const ProductData = [
-  { id: "1", name: "vdvsyd", make: "make", modal: "modal", count: "count" },
-  { id: "1", name: "vdvsyd", make: "make", modal: "modal", count: "count" },
-  { id: "1", name: "vdvsyd", make: "make", modal: "modal", count: "count" },
-  { id: "1", name: "vdvsyd", make: "make", modal: "modal", count: "count" },
-  { id: "1", name: "vdvsyd", make: "make", modal: "modal", count: "count" },
-  
+  { id: "PR739893", name: "HORN", make: "TVS", model: "2019", count: "5" },
+  { id: "PR739893", name: "HORN", make: "TVS", model: "2019", count: "5" },
+  { id: "PR739893", name: "HORN", make: "TVS", model: "2019", count: "5" },
+  { id: "PR739893", name: "HORN", make: "TVS", model: "2019", count: "5" },
+  { id: "PR739893", name: "HORN", make: "TVS", model: "2019", count: "5" },
+
 ];
 
 const useStyles = makeStyles({
@@ -81,14 +82,21 @@ export default function EnhancedTable() {
                     {ProductHeader.map((header, index) =>
                       header.key === "actions" ? (
                         <TableCell align="left" style={{ color: "#1E4597" }}>
-                          <span
+                          <Link
+                            to={{
+                              pathname: "/view",
+
+                            }}
+                            style={{ textDecoration: "none" }}
+                          ><span
                             style={{
                               cursor: "pointer",
+
                             }}
                           >
-                            View
-                          </span>
-                          <span
+                              View
+                          </span> </Link>
+                          {/* <span
                             style={{
                               cursor: "pointer",
                               marginLeft: "20px",
@@ -96,8 +104,8 @@ export default function EnhancedTable() {
                           >
                             {" "}
                             Edit
-                          </span>
-                          <span
+                          </span> */}
+                          {/* <span
                             style={{
                               cursor: "pointer",
                               marginLeft: "20px",
@@ -105,13 +113,13 @@ export default function EnhancedTable() {
                           >
                             {" "}
                             Delete
-                          </span>
+                          </span> */}
                         </TableCell>
                       ) : (
-                        <>
-                          <TableCell align="left">{row[header.key]}</TableCell>
-                        </>
-                      )
+                          <>
+                            <TableCell align="left">{row[header.key]}</TableCell>
+                          </>
+                        )
                     )}
                   </TableRow>
                 </>

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import DashboardChildren from './DashboardChildren';
-import Navbar from './Navbar'
-import Sidebar from './Sidebar'
+import DashboardChildren from './ViewDetails';
+import Navbar from '../Dashboard/Navbar'
+import Sidebar from '../Dashboard/Sidebar'
 
 const Dashboard = () => {
 
@@ -23,7 +23,7 @@ const Dashboard = () => {
     <div style={{ width: dimensions.width, height: dimensions.height }}>
       <Navbar />
 
-      <div style={{ width: '100%', display: 'flex', height: "inherit" }}>
+      <div style={{ width: '100%', display: 'flex' }}>
         {/* <Sidebar width={dimensions.width} height={dimensions.height} /> */}
         <DashboardChildren width={dimensions.width} height={dimensions.height} />
 
