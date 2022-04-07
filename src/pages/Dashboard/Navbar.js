@@ -17,15 +17,15 @@ const Navbar = () => {
       />
 
       <div style={{ display: "flex", alignItems: 'center' }}>
-        <div style={{
+        {/* <div style={{
           width: "40px",
           height: "40px", backgroundColor: "#1E4597", borderRadius: "60px", marginRight: "15px"
         }}>
 
-        </div>
-        <div style={{
+        </div> */}
+        {/* <div style={{
           color: "#AAAAAA", fontWeight: 600, fontSize: "16px"
-        }}>Welcome Johnson</div>
+        }}>Welcome Johnson</div> */}
       </div>
     </div>
   )

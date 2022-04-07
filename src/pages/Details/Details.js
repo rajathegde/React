@@ -244,6 +244,27 @@ export default function EnhancedTable() {
               // },
             }}
             icon="false"
+          ></Button> <Button
+            width="200px"
+            height="60px"
+            margin="28px 15px 0 32px"
+            background="#1E4597"
+            borderRadius="0px"
+            text="Cancel"
+            onClick={{
+              event: "save",
+              fn: () => {
+                setAction("View")
+                // history.push(`/`);
+                // history.push({ pathname: "/", state: { page: dashboardPage } })
+
+                // history.goBack();
+              },
+              // fn: () => {
+              //   // history.goBack();
+              // },
+            }}
+            icon="false"
           ></Button></div> : action == "Add" ? <div style={{ textAlign: "center" }}>
             <UploadPopup
               // parentCallback={(e) => handleCallback(e)}

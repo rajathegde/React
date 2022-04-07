@@ -24,7 +24,7 @@ const Dashboard = () => {
       <Navbar />
 
       <div style={{ width: '100%', display: 'flex', height: "inherit" }}>
-        <Sidebar width={dimensions.width} height={dimensions.height} />
+        {/* <Sidebar width={dimensions.width} height={dimensions.height} /> */}
         <DashboardChildren width={dimensions.width} height={dimensions.height} />
 
       </div>

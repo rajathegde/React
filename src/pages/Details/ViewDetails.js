@@ -6,7 +6,7 @@ import Details from './Details';
 
 const DashboardChildren = ({ width, height }) => {
   return (
-    <div style={{ width: "80%", padding: "10px 25px", boxSizing: "border-box", backgroundColor: "#E5E5E5" }}>
+    <div style={{ width: "100%", padding: "10px 115px", boxSizing: "border-box", backgroundColor: "#E5E5E5" }}>
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
         <h3>View Product</h3>
 
