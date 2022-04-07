@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: tvs-image-products
-          image: asia.gcr.io/niveusvideoanalytics/tvs-image-products:latest
+          image: gcr.io/niveus-research-project/tvs-image-products:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 8081   
