@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tvs-image-products
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tvs-image-products
+  template:
+    metadata:
+      labels:
+        app: tvs-image-products
+    spec:
+      containers:
+        - name: tvs-image-products
+          image: asia.gcr.io/niveusvideoanalytics/tvs-image-products:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8081   
