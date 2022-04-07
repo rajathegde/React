@@ -19,10 +19,10 @@ spec:
           ports:
             - containerPort: 8080
           volumeMounts:
+          - name: service-key
+            mountPath: "/app/credentials/project-development"
+            readOnly: true
+        volumes:
         - name: service-key
-          mountPath: "/app/credentials/project-development"
-          readOnly: true
-      volumes:
-      - name: service-key
-        secret:
-          secretName: project-development   
+          secret:
+            secretName: project-development   
