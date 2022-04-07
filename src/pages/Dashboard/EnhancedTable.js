@@ -26,12 +26,13 @@ export const ProductData = [
   { id: "PR739893", name: "HORN", make: "TVS", model: "2019", count: "5" },
   { id: "PR739893", name: "HORN", make: "TVS", model: "2019", count: "5" },
   { id: "PR739893", name: "HORN", make: "TVS", model: "2019", count: "5" },
+  { id: "PR739893", name: "HORN", make: "TVS", model: "2019", count: "5" },
 
 ];
 
 const useStyles = makeStyles({
   table: {
-    minWidth: 650,
+    // minWidth: 650,
     "& .MuiTableCell-root": {
       borderLeft: "1px solid rgba(224, 224, 224, 1)",
     },
@@ -46,7 +47,7 @@ function createData(name, code, population, size) {
 export default function EnhancedTable() {
   const classes = useStyles();
   const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(10);
+  const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -59,7 +60,7 @@ export default function EnhancedTable() {
 
   return (
     <Paper sx={{ width: "100%", overflow: "hidden" }}>
-      <TableContainer sx={{ maxHeight: window.innerHeight * 0.4 }}>
+      <TableContainer >
         <Table stickyHeader aria-label="sticky table" className={classes.table}>
           <TableHead>
             <TableRow>
