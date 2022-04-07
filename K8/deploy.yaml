@@ -17,4 +17,12 @@ spec:
           image: gcr.io/niveus-research-project/tvs-image-products:latest
           imagePullPolicy: Always
           ports:
-            - containerPort: 8080   
+            - containerPort: 8080
+          volumeMounts:
+        - name: service-key
+          mountPath: "/app/credentials/project-development"
+          readOnly: true
+      volumes:
+      - name: service-key
+        secret:
+          secretName: project-development   
