@@ -3,7 +3,10 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import Login from "../pages/Login/index";
 import Dashboard from "../pages/Dashboard/index";
 import ViewDetails from "../pages/Details/index";
-import Viewproduct from "../pages/Viewproduct.js";
+import Viewproduct from "../pages/Viewproduct/index";
+import EditProduct from "../pages/EditProduct";
+
+
 
 const MainRoutes = ({ isAuthenticated = true }) => {
   return (
@@ -13,6 +16,9 @@ const MainRoutes = ({ isAuthenticated = true }) => {
       <Route exact path="/dashboard" element={<Dashboard />} />
       <Route exact path="/view" element={<ViewDetails />} />
       <Route path="/view" element={<Viewproduct />} />
+      <Route path="/edit" element={<EditProduct />} />
+
+
 
     </Routes>
   );

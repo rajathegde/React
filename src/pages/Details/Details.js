@@ -10,6 +10,7 @@ import TableRow from "@mui/material/TableRow";
 import { makeStyles } from "@material-ui/core/styles";
 import { TableSortLabel } from "@mui/material";
 import Checkbox from '@mui/material/Checkbox';
+import Modal from "@mui/material/Modal";
 
 import { Button } from "../Common/Button/Button.js";
 import Image1 from '../../assets/image 5.png';
@@ -58,6 +59,8 @@ function createData(name, code, population, size) {
 export default function EnhancedTable() {
   const classes = useStyles();
   const [page, setPage] = React.useState(0);
+  const [openModal, setOpenModal] = React.useState(false);
+
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
   const [productImges, setProductImages] = React.useState(ProductImages);
   const [action, setAction] = React.useState("View");
@@ -168,6 +171,7 @@ export default function EnhancedTable() {
               onClick={{
                 event: "save",
                 fn: () => {
+
                   setAction("Delete")
                   // history.push(`/`);
                   // history.push({ pathname: "/", state: { page: dashboardPage } })
@@ -234,6 +238,8 @@ export default function EnhancedTable() {
               event: "save",
               fn: () => {
                 setAction("View")
+                // setAction("View")
+                setOpenModal(true)
                 // history.push(`/`);
                 // history.push({ pathname: "/", state: { page: dashboardPage } })
 
@@ -319,6 +325,69 @@ export default function EnhancedTable() {
             ></Button></div> : null}
       </Paper>
 
+      {openModal && (
+        <Modal
+          open={openModal}
+          onClose={() => setOpenModal(false)}
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            border: "0px solid gray",
+          }}
+        >
+          <div
+            style={{
+              width: "500px",
+              boxSizing: "border-box",
+              outline: "none",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              backgroundColor: "white",
+              height: "200px",
+              flexDirection: "column",
+              padding: "15px"
+            }}
+          >
+
+
+            <div style={{ width: "100%" }}>
+              <p>Delete Images?</p>
+              <p>Are you sure you want to delete all images?</p>
+            </div>
+            <div>
+              <button
+                style={{
+                  width: "200px",
+                  height: "50px",
+                  border: "1px solid #1E4597",
+                  color: "#1E4597",
+                  cursor: "pointer",
+                  backgroundColor: "white",
+                }}
+                onClick={() => setOpenModal(true)}
+              >
+                Yes
+            </button>
+
+              <button
+                style={{
+                  backgroundColor: "#1E4597",
+                  width: "200px",
+                  height: "50px",
+                  border: "1px solid #1E4597",
+                  marginLeft: "20px",
+                  color: "#FFFFFF",
+                  cursor: "pointer",
+                }}
+              >
+                No
+            </button>
+            </div>
+          </div>
+        </Modal>
+      )}
     </>
   );
 }

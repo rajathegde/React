@@ -1,60 +1,58 @@
-import React,{useState} from 'react'
-import Filter from '../../assets/filter.png';
+import React, { useState } from 'react'
+import Filter  from '../../assets/filter.png';
 import Search from '../../assets/search.png';
 import { Modal, Table } from '@mui/material';
 import EnhancedTable from './EnhancedTable';
 
-const DashboardChildren = ({ width, height }) => {
+const Filterproduct = ({width , height}) => {
   const [filterModal , setOpenModalFilter] = useState(false);
-  const options1 = [{name: "Select Make"}, {name: "Select Make"},{name: "selectMake"},]
-  const options2 = [{name: "Select Model Year"}, {name: "Select Model Year"},{name: "Select Model Year"},]
-  const options3 = [{name: "Select Image Count"}, {name: "Select Image Count "},{name: "Select Image Count"},]
 
+  const options = [{name: "option1"}, {name: "option1"},{name: "option1"},]
   return (
-    <div style={{ width: "100%", padding: "10px 115px", boxSizing: "border-box", backgroundColor: "#E5E5E5" }}>
-    <div style={{ width: "100%", padding: "10px 100px", boxSizing: "border-box", backgroundColor: "#E5E5E5" }}>
-      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-        <h3>Products</h3>
-        <div style={{ width: "40px", height: "40px", borderRadius: "60px", backgroundColor: "#1E4597", display: "flex", alignItems: "center", justifyContent: "center" }}>
-          <img src={Filter} style={{ width: "20px", height: "20px", objectFit: "contain" }} onClick={() =>  setOpenModalFilter(true)}/>
-        </div>
-        </div>
+    <div style={{ width:"80%" , height : height -70 , padding:"10px 50px" , boxSizing:"border-box"  , backgroundColor:"#E5E5E5"}}>
+         <div style={{display:"flex"  , alignItems:"center"  , justifyContent:"space-between" }}>
+               <h3>Products</h3>
+               <div style={{width:"40px" , height : "40px" , borderRadius:"60px" , backgroundColor:"#1E4597", display:"flex"  , alignItems:"center", justifyContent:"center"}}>
+                   <img src={Filter}  style={{width:"20px" , height:"20px" , objectFit:"contain"}} onClick={() =>  setOpenModalFilter(true)}/>
+               </div>
+               
+         </div>
+         <div
+              style={{
+                height: "60px",
+                width: "100%",
+                boxSizing: "border-box",
+                outline: "none",
+                display: "flex",
+                alignItems: "center",
+                padding: "0px 15px",
+                backgroundColor:"white",
+                marginTop:"15px",
+                borderRadius: "10px"
+              }}
+            >
+             
+              <input
+                type="text"
+                placeholder="Search by Product Id, Name, Make, Model etc"
+                style={{
+                  border: "0px solid black",
+                  padding: "0px",
+                  boxSizing: "border-box",
+                  outline: "none",
+                  width: "98%",
+                  marginLeft: "10px",
+                }}
+                
+              />
+               <img src={Search} style={{ objectFit: "contain" }} />
+            </div>
+         <div style={{marginTop:"20px"}}>
+            <EnhancedTable />      
+         </div>
 
-      </div>
-      <div
-        style={{
-          height: "50px",
-          width: "100%",
-          boxSizing: "border-box",
-          outline: "none",
-          display: "flex",
-          alignItems: "center",
-          padding: "0px 15px",
-          backgroundColor: "white",
-          marginTop: "15px",
-          borderRadius: "5px"
-        }}
-      >
 
-        <input
-          type="text"
-          placeholder="Search by Product ID, Name, Make, Model etc"
-          style={{
-            border: "0px solid black",
-            padding: "0px",
-            boxSizing: "border-box",
-            outline: "none",
-            width: "98%",
-            marginLeft: "10px",
-          }}
-
-        />
-        <img src={Search} style={{ objectFit: "contain" }} />
-      </div>
-      <div style={{ marginTop: "20px" }}>
-        <EnhancedTable />
-      </div>
-      {filterModal && (
+         {filterModal && (
         <Modal
           open={filterModal}
           onClose={() => setOpenModalFilter(false)}
@@ -85,8 +83,8 @@ const DashboardChildren = ({ width, height }) => {
 
             
                 <select  type="select"   style={{ outline:"none" , width: "100%" , height: "50px" , border:"1px solid grey"  , padding: "0px 10px" , marginBottom:"10px"}}  >
-                {options1 &&
-              options1.map ((option, index) => {
+                {options &&
+              options.map((option, index) => {
                 return (
                   <option
                     key={index}
@@ -103,8 +101,8 @@ const DashboardChildren = ({ width, height }) => {
               })}
                 </select>
                 <select  type="select"   style={{ outline:"none" , width: "100%" , height: "50px" , border:"1px solid grey"  , padding: "0px 10px", marginBottom:"10px"}}  >
-                {options2 &&
-              options2.map((option, index) => {
+                {options &&
+              options.map((option, index) => {
                 return (
                   <option
                     key={index}
@@ -121,8 +119,8 @@ const DashboardChildren = ({ width, height }) => {
               })}
                 </select>
                 <select  type="select"   style={{ outline:"none" , width: "100%" , height: "50px" , border:"1px solid grey"  , padding: "0px 10px", marginBottom:"10px"}}  >
-                {options3 &&
-              options3.map((option, index) => {
+                {options &&
+              options.map((option, index) => {
                 return (
                   <option
                     key={index}
@@ -172,9 +170,8 @@ const DashboardChildren = ({ width, height }) => {
           </div>
         </Modal>
       )}
-
     </div>
   )
 }
 
-export default DashboardChildren
+export default Filterproduct
