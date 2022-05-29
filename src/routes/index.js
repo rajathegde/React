@@ -5,6 +5,7 @@ import Dashboard from "../pages/Dashboard/index";
 import ViewDetails from "../pages/Details/index";
 import Viewproduct from "../pages/Viewproduct/index";
 import EditProduct from "../pages/EditProduct";
+import Vehicle from "../pages/vehical";
 
 
 
@@ -17,6 +18,8 @@ const MainRoutes = ({ isAuthenticated = true }) => {
       <Route exact path="/view" element={<ViewDetails />} />
       <Route path="/view" element={<Viewproduct />} />
       <Route path="/edit" element={<EditProduct />} />
+      <Route path="/vehicle" element={<Vehicle/>} />
+
 
 
 
