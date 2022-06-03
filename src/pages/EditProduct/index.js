@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import Navbar from "../Dashboard/Navbar";
-import Sidebar from "../Dashboard/Sidebar";
+import Navbar from "../VehicleMapping/Navbar";
+import Sidebar from "../VehicleMapping/Sidebar";
 import ProductImagel from "../../assets/image 5.png";
 import ProductImager from "../../assets/image 6.png";
 import ProductImageu from "../../assets/image 7.png";
@@ -46,6 +46,8 @@ const EditProduct = () => {
       <Navbar />
 
       
+      <div style={{ width: "100%", display: "flex" }}>
+        <Sidebar width={dimensions.width} height={dimensions.height} />
 
         <div
           style={{
@@ -103,6 +105,7 @@ const EditProduct = () => {
                     >
                       <p style={{ color: "black" }}>{item.name}</p>
                       <p>{item.value}</p>
+                      
                     </div>
                   );
                 })}
@@ -134,7 +137,11 @@ const EditProduct = () => {
                       }}
                     >
                       <input type="checkbox" style={{ cursor: "pointer" }} />
-                      <img src={item.image} />
+                      <img src={item.image} style={{height:"100px",width:"100px"}}/>
+                      <span style={{ color: " #1E4597", fontWeight: "600" ,cursor: "pointer",}}>
+                        
+                      View Image
+                  </span>
                     </div>
                   );
                 })}
@@ -169,7 +176,7 @@ const EditProduct = () => {
                 {/* Add color to p tag */}
 
                 <p style={{ margin: 0, marginTop: 5, color: "#AAAAAA" }}>
-                  Drag and drop the image or{" "}
+                Drag & drop the images or browse{" "}
                   <span style={{ color: " #1E4597", fontWeight: "600" }}>
                     browse
                   </span>
@@ -222,6 +229,7 @@ const EditProduct = () => {
             </button>
           </div>
         </div>
+      </div>
       </div>
     
   );

@@ -12,20 +12,16 @@ import { TableSortLabel } from "@mui/material";
 import { useNavigate } from "react-router";
 
 export const ProductHeader = [
-  { name: "Make", key: "Make" },
-  { name: "Modal", key: "modal" },
-  { name: "Fuel Type", key: "fuel Type" },
-  { name: "Category", key: "category" },
+  { name: "Part No.", key: "part no." },
+  
   { name: "Actions", key: "actions" },
 ];
 
 export const ProductData = [
-  { id: "1", name: "vdvsyd", make: "Hyundai", modal: "i30", count: "count" },
+  { id: "1", name: "Part No.", make: "make", modal: "modal", count: "count" },
   { id: "1", name: "vdvsyd", make: "make", modal: "modal", count: "count" },
   { id: "1", name: "vdvsyd", make: "make", modal: "modal", count: "count" },
-  { id: "1", name: "vdvsyd", make: "make", modal: "modal", count: "count" },
-  { id: "1", name: "vdvsyd", make: "make", modal: "modal", count: "count" },
-  { id: "1", name: "vdvsyd", make: "make", modal: "modal", count: "count" },
+
 ];
 
 const useStyles = makeStyles({
@@ -86,19 +82,11 @@ export default function EnhancedTable() {
                             style={{
                               cursor: "pointer",
                             }}
-                            onClick={()=> navigate("/view")}
+                           // onClick={()=> navigate("/view")}
                           >
-                            Add Part No.
+                            Continue to Select Vehicle no
                           </span>
-                          <span
-                            style={{
-                              cursor: "pointer",
-                              marginLeft: "20px",
-                            }}
-                          >
-                            {" "}
-                            Edit
-                          </span>
+                          
                           
                         </TableCell>
                       ) : (

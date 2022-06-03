@@ -101,24 +101,9 @@ const DashboardChildren = ({width , height}) => {
             </div>
 
             
-                <select  type="select"   style={{ outline:"none" , width: "100%" , height: "50px" , border:"1px solid grey"  , padding: "0px 10px" , marginBottom:"10px"}}  >
-                {options1 &&
-              options1.map ((option, index) => {
-                return (
-                  <option
-                    key={index}
-                    className="title"
-                    style={{
-                      color: "black",
-                      backgroundColor: "white",
-                    }}
-                    value={option.name}
-                  >
-                    {option.name}
-                  </option>
-                );
-              })}
-                </select>
+                <input  type="input"  placeholder="make" style={{ outline:"none" , width: "100%" , height: "50px" , border:"1px solid grey"  , padding: "0px 10px" , marginBottom:"10px"}}  />
+                
+                
                 <select  type="select"   style={{ outline:"none" , width: "100%" , height: "50px" , border:"1px solid grey"  , padding: "0px 10px", marginBottom:"10px"}}  >
                 {options2 &&
               options2.map((option, index) => {

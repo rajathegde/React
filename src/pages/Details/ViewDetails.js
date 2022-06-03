@@ -4,6 +4,7 @@ import Search from '../../assets/search.png';
 import { Table } from '@mui/material';
 import Details from './Details';
 
+
 const DashboardChildren = ({ width, height }) => {
   return (
      
