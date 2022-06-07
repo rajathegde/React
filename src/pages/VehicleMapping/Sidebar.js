@@ -11,9 +11,9 @@ const SidebarData = [
   
 ];
 
-const Sidebar = ({ width, height }) => {
+const Sidebar = ({ width, minHeight }) => {
   return (
-    <div style={{ width: "20%", backgroundColor: "#1E4597", height: height - 70 , padding: "20px 0px" , boxSizing: "border-box" , display: "flex" , alignItems: "center" , flexDirection:"column"}}>
+    <div style={{ width: "20%", backgroundColor: "#1E4597", minHeight: minHeight - 70 , padding: "20px 0px" , boxSizing: "border-box" , display: "flex" , alignItems: "center" , flexDirection:"column"}}>
        <div>
         {SidebarData.map((item, i) => {
           return (

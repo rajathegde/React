@@ -8,6 +8,7 @@ import ProductImaged from "../../assets/image 8.png";
 import ProductImagec from "../../assets/image 9.png";
 import BrowserImage from "../../assets/log-out.png";
 import { padding } from "@mui/system";
+import { Modal } from "@mui/material";
 
 const EditProduct = () => {
   const [dimensions, setDimensions] = useState({
@@ -17,6 +18,8 @@ const EditProduct = () => {
   const updateWindowDimensions = () => {
     setDimensions({ width: window.innerWidth, height: window.innerHeight });
   };
+  const [openModal, setOpenModal] = useState(false);
+  const [modalImages,setModalImages] = useState("");
 
   useEffect(() => {
     window.addEventListener("resize", updateWindowDimensions);
@@ -135,11 +138,13 @@ const EditProduct = () => {
                         display: "flex",
                         flexDirection: "column",
                       }}
+                        onClick={() => {setOpenModal(true); setModalImages(item.image)}}
+                    
+
                     >
                       <input type="checkbox" style={{ cursor: "pointer" }} />
                       <img src={item.image} style={{height:"100px",width:"100px"}}/>
                       <span style={{ color: " #1E4597", fontWeight: "600" ,cursor: "pointer",}}>
-                        
                       View Image
                   </span>
                     </div>
@@ -230,6 +235,21 @@ const EditProduct = () => {
           </div>
         </div>
       </div>
+      {setOpenModal && (
+      <Modal
+          open={openModal}
+          onClose={() => setOpenModal(false)}
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            border: "0px solid gray",
+          }}
+        >
+          <div style={{height:"60%",width:"40%",position:"relative",backgroundColor:"white",display:"flex",alignItems:"center",justifyContent:"center"}}> <img style={{height:"100%",width:"80%",}} src={modalImages}/>
+          <div style={{position:"absolute" , top:"20px" , right:"20px"}}>X</div></div>
+        </Modal>
+)}
       </div>
     
   );
