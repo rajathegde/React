@@ -12,8 +12,8 @@ const DashboardChildren = ({ width, height }) => {
 
   return (
     <div style={{ width: "100%", padding: "10px 115px", boxSizing: "border-box", backgroundColor: "#E5E5E5" }}>
-    <div style={{ width: "100%", padding: "10px 100px", boxSizing: "border-box", backgroundColor: "#E5E5E5" }}>
-      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+    <div style={{ width: "100%",  boxSizing: "border-box", backgroundColor: "#E5E5E5" }}>
+      <div style={{ width:"100%",display: "flex", alignItems: "center", justifyContent: "space-between",fontFamily:"poppins" }}>
         <h3>Products</h3>
         <div style={{ width: "40px", height: "40px", borderRadius: "60px", backgroundColor: "#1E4597", display: "flex", alignItems: "center", justifyContent: "center" }}>
           <img src={Filter} style={{ width: "20px", height: "20px", objectFit: "contain" }} onClick={() =>  setOpenModalFilter(true)}/>

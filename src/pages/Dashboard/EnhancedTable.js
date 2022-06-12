@@ -85,36 +85,47 @@ export default function EnhancedTable() {
                         <TableCell align="left" style={{ color: "#1E4597" }}>
                           <Link
                             to={{
-                              pathname: "/view",
+                              pathname: "/viewproduct",
 
                             }}
                             style={{ textDecoration: "none" }}
                           ><span
                             style={{
                               cursor: "pointer",
+                              color:"#1E4597"
 
                             }}
                           >
                               View
                           </span> </Link>
-                          {/* <span
+                          
+                          <Link
+                            to={{
+                              pathname: "/edit",
+
+                            }}
+                            style={{ textDecoration: "none" }}
+                          ><span
                             style={{
                               cursor: "pointer",
                               marginLeft: "20px",
-                            }}
+                              color:"#1E4597"
+                             }}
                           >
-                            {" "}
-                            Edit
-                          </span> */}
-                          {/* <span
+                              Edit
+                          </span> </Link>
+
+                          { <span
                             style={{
                               cursor: "pointer",
                               marginLeft: "20px",
+                              cursor: "pointer",
                             }}
+                            //onClick={()=> navigate("/edit")}
                           >
                             {" "}
                             Delete
-                          </span> */}
+                          </span> }
                         </TableCell>
                       ) : (
                           <>

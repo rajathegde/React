@@ -12,7 +12,7 @@ import { TableSortLabel } from "@mui/material";
 import { useNavigate } from "react-router";
 
 export const ProductHeader = [
-  { name: "Make", key: "Make" },
+  { name: "Make", key: "make" },
   { name: "Modal", key: "modal" },
   { name: "Fuel Type", key: "fuel Type" },
   { name: "Category", key: "category" },
@@ -86,7 +86,7 @@ export default function EnhancedTable() {
                             style={{
                               cursor: "pointer",
                             }}
-                            onClick={()=> navigate("/view")}
+                            //onClick={()=> navigate("/view")}
                           >
                             Add Part No.
                           </span>

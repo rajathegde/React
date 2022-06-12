@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../Dashboard/Navbar";
-import Sidebar from "../Dashboard/Sidebar";
+import Sidebar from "../VehicleMapping/Sidebar";
 import ProductImagel from "../../assets/image 5.png";
 import ProductImager from "../../assets/image 6.png";
 import ProductImageu from "../../assets/image 7.png";

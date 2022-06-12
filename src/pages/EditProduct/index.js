@@ -247,7 +247,10 @@ const EditProduct = () => {
           }}
         >
           <div style={{height:"60%",width:"40%",position:"relative",backgroundColor:"white",display:"flex",alignItems:"center",justifyContent:"center"}}> <img style={{height:"100%",width:"80%",}} src={modalImages}/>
-          <div style={{position:"absolute" , top:"20px" , right:"20px"}}>X</div></div>
+          <div style={{position:"absolute" , top:"20px" , right:"20px",cursor: "pointer"}}
+          onClick={() => {setOpenModal(false); }}
+          >
+            X</div></div>
         </Modal>
 )}
       </div>
