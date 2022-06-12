@@ -7,6 +7,7 @@ import ProductImageu from "../../assets/image 7.png";
 import ProductImaged from "../../assets/image 8.png";
 import ProductImagec from "../../assets/image 9.png";
 import Modal from "@mui/material/Modal";
+import { Navigate, useNavigate } from "react-router";
 
 const Viewproduct = () => {
   const [dimensions, setDimensions] = useState({
@@ -24,6 +25,7 @@ const Viewproduct = () => {
       window.removeEventListener("resize", updateWindowDimensions);
     };
   }, []);
+  const navigate = useNavigate();
 
   const data = [
     { name: "Product ID", value: "123456789" },
@@ -163,7 +165,7 @@ const Viewproduct = () => {
                 cursor: "pointer",
                 
               }}
-              //onClick={() => setOpenModal(true)}
+              onClick={() => navigate("/Edit")}
             >
               Edit
             </button>

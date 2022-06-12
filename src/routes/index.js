@@ -11,7 +11,7 @@ import VehicleMapping from "../pages/VehicleMapping";
 const MainRoutes = ({ isAuthenticated = true }) => {
   return (
     <Routes>
-      <Route path="/" element={<Navigate replace to="/login" />} />
+      <Route path="/" element={<Navigate replace to="/dashboard" />} />
       
       <Route exact path="/dashboard" element={<Dashboard />} />
       <Route path="/viewproduct" element={<Viewproduct />} />
