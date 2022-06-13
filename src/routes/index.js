@@ -6,6 +6,7 @@ import Viewproduct from "../pages/Viewproduct/index";
 import EditProduct from "../pages/EditProduct";
 import Vehicle from "../pages/vehical";
 import VehicleMapping from "../pages/VehicleMapping";
+import Masters from "../pages/masters"
 
 
 const MainRoutes = ({ isAuthenticated = true }) => {
@@ -18,6 +19,8 @@ const MainRoutes = ({ isAuthenticated = true }) => {
       <Route path="/edit" element={<EditProduct />} />
       <Route path="/vehicle" element={<Vehicle/>} />
       <Route path="/vehiclemapping" element={<VehicleMapping/>} />
+      <Route path="/masters" element={<Masters/>} />
+      
 
 
 
