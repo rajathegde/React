@@ -104,11 +104,29 @@ const DashboardChildren = ({width , height}) => {
             </div>
 
             
-                <input  type="input"  placeholder="make" style={{ outline:"none" , width: "95%" , height: "50px" , border:"1px solid grey"  , padding: "0x 10px" , marginBottom:"10px",backgroundColor:"lightgrey"}}  />
-                <input  type="input"  placeholder="Model" style={{ outline:"none" , width: "95%" , height: "50px" , border:"1px solid grey"  , padding: "0px 10px" , marginBottom:"10px",backgroundColor:"lightgrey"}}  />
+                <input  type="input"  placeholder="make"  style={{
+                outline: "none",
+                width: "100%",
+                height: "50px",
+                border: "1px solid grey",
+                padding: "0px 10px",
+                marginBottom: "10px",
+                boxSizing: "border-box",
+                
+              }} />
+                <input  type="input"  placeholder="Model"  style={{
+                outline: "none",
+                width: "100%",
+                height: "50px",
+                border: "1px solid grey",
+                padding: "0px 10px",
+                marginBottom: "10px",
+                boxSizing: "border-box",
+
+              }}  />
 
                 
-                <select  type="select"   style={{ outline:"none" , width: "100%" , height: "50px" , border:"1px solid grey"  , padding: "0px 10px", marginBottom:"10px"}}  >
+                <select  type="select"   style={{ outline:"none" , width: "100%" , height: "50px"  , padding: "0px 10px", marginBottom:"10px"}}  >
                 {options2 &&
               options2.map((option, index) => {
                 return (
@@ -126,7 +144,7 @@ const DashboardChildren = ({width , height}) => {
                 );
               })}
                 </select>
-                <select  type="select"   style={{ outline:"none" , width: "100%" , height: "50px" , border:"1px solid grey"  , padding: "0px 10px", marginBottom:"10px"}}  >
+                <select  type="select"   style={{ outline:"none" , width: "100%" , height: "50px"   , padding: "0px 10px", marginBottom:"10px"}}  >
                 {options3 &&
               options3.map((option, index) => {
                 return (
@@ -144,7 +162,7 @@ const DashboardChildren = ({width , height}) => {
                 );
               })}
                 </select>
-                <select  type="select"   style={{ outline:"none" , width: "100%" , height: "50px" , border:"1px solid grey"  , padding: "0px 10px", marginBottom:"10px"}}  >
+                <select  type="select"   style={{ outline:"none" , width: "100%" , height: "50px"   , padding: "0px 10px", marginBottom:"10px"}}  >
                 {options4 &&
               options4.map((option, index) => {
                 return (
@@ -162,7 +180,7 @@ const DashboardChildren = ({width , height}) => {
                 );
               })}
                 </select>
-                <select  type="select"   style={{ outline:"none" , width: "100%" , height: "50px" , border:"1px solid grey"  , padding: "0px 10px", marginBottom:"10px"}}  >
+                <select  type="select"   style={{ outline:"none" , width: "100%" , height: "50px"   , padding: "0px 10px", marginBottom:"10px"}}  >
                 {options5 &&
               options5.map((option, index) => {
                 return (
@@ -180,7 +198,7 @@ const DashboardChildren = ({width , height}) => {
                 );
               })}
                 </select>
-                <select  type="select"   style={{ outline:"none" , width: "100%" , height: "50px" , border:"1px solid grey"  , padding: "0px 10px", marginBottom:"10px"}}  >
+                <select  type="select"   style={{ outline:"none" , width: "100%" , height: "50px"   , padding: "0px 10px", marginBottom:"10px"}}  >
                 {options6 &&
               options6.map((option, index) => {
                 return (
