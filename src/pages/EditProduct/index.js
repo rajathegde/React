@@ -10,6 +10,8 @@ import BrowserImage from "../../assets/log-out.png";
 import { padding } from "@mui/system";
 import { Modal } from "@mui/material";
 import APIService from "../../services/api-service";
+import UploadPopup from "../Common/popup";
+
 
 const EditProduct = () => {
   const [dimensions, setDimensions] = useState({

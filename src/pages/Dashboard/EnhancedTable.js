@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useEffect, useState } from "react";
 import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -12,23 +12,23 @@ import { TableSortLabel } from "@mui/material";
 
 import { Link } from "react-router-dom";
 export const ProductHeader = [
-  { name: "Products ID", key: "id" },
-  { name: "Name", key: "name" },
+  { name: "Products ID", key: "partno" },
+  { name: "Name", key: "componentname" },
   { name: "Make", key: "make" },
   { name: "Model", key: "model" },
   { name: "Image Count", key: "count" },
   { name: "Action", key: "actions" },
 ];
 
-export const ProductData = [
-  { id: "PR739893", name: "HORN", make: "TVS", model: "2019", count: "5" },
-  { id: "PR739893", name: "HORN", make: "TVS", model: "2019", count: "5" },
-  { id: "PR739893", name: "HORN", make: "TVS", model: "2019", count: "5" },
-  { id: "PR739893", name: "HORN", make: "TVS", model: "2019", count: "5" },
-  { id: "PR739893", name: "HORN", make: "TVS", model: "2019", count: "5" },
-  { id: "PR739893", name: "HORN", make: "TVS", model: "2019", count: "5" },
+// export const ProductData = [
+//   { id: "PR739893", name: "HORN", make: "TVS", model: "2019", count: "5" },
+//   { id: "PR739894", name: "HORN", make: "TVS", model: "2019", count: "5" },
+//   { id: "PR739895", name: "HORN", make: "TVS", model: "2019", count: "5" },
+//   { id: "PR739896", name: "HORN", make: "TVS", model: "2019", count: "5" },
+//   { id: "PR739897", name: "HORN", make: "TVS", model: "2019", count: "5" },
+//   { id: "PR739898", name: "HORN", make: "TVS", model: "2019", count: "5" },
 
-];
+// ];
 
 const useStyles = makeStyles({
   table: {
@@ -44,11 +44,25 @@ function createData(name, code, population, size) {
   return { name, code, population, size, density };
 }
 
-export default function EnhancedTable() {
+export default function EnhancedTable(props) {
+ console.log("hmmmm",props.data.length)
+ 
   const classes = useStyles();
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
+  const [ProductData,setProductData] = React.useState([]);
 
+
+  useEffect(() => {
+    setProductData(props.data)
+  }, []);
+  // if(props.data){
+  //   const [ProductData] =  React.useState(props.data.length)
+  // }
+  // if(props.datalength>0){
+  //   setProductData(props.data)
+  // }
+ 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
   };
