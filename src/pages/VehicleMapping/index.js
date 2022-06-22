@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import Navbar from './Navbar'
-import Sidebar from './Sidebar'
+import Navbar from '../VehicleMapping/Navbar';
+import Sidebar from '../VehicleMapping/Sidebar';
 import VehicleMappingBody from "./VehicleMappingBody";
 
 const VehicleMapping = () => {

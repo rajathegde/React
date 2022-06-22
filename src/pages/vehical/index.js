@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import DashboardChildren from './DashboardChildren';
-import Navbar from './Navbar'
-import Sidebar from './Sidebar'
+import Navbar from '../VehicleMapping/Navbar';
+import Sidebar from '../VehicleMapping/Sidebar';
+
 
 const Vehicle = () => {
 

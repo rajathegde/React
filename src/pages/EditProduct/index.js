@@ -165,35 +165,18 @@ const EditProduct = () => {
 
               }}
             >
-              <div
-                style={{
-                  boxSizing: "border-box",
-                  outline: "none",
-                  display: "flex",
-                  alignItems: "center",
-                  padding: "20px 15px",
-                  backgroundColor: "white",
-                  justifyContent: "center",
-                  flexDirection: "column",
-                  border: "1px dashed grey",
-                  boxSizing: "border-box",
-                }}
-              >
+              
                 {/* Add Image Here */}
-                <img alt="image" src={BrowserImage} />
+                
+                <UploadPopup
+              // parentCallback={(e) => handleCallback(e)}
+              type="Delete"
+              status="true"
+            />
 
                 {/* Add color to p tag */}
 
-                <p style={{ margin: 0, marginTop: 5, color: "#AAAAAA" }}>
-                Drag & drop the images or browse{" "}
-                  <span style={{ color: " #1E4597", fontWeight: "600" }}>
-                    browse
-                  </span>
-                </p>
-                <p style={{ margin: 0, marginTop: 5, color: "#AAAAAA" }}>
-                  (.png & .jpp are allowed)
-                </p>
-              </div>
+              
             </div>
           </div>
 
