@@ -9,6 +9,7 @@ import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
 import { makeStyles } from "@material-ui/core/styles";
 import { TableSortLabel } from "@mui/material";
+import { useNavigate } from "react-router";
 
 import { Link } from "react-router-dom";
 export const ProductHeader = [
@@ -45,7 +46,8 @@ function createData(name, code, population, size) {
 }
 
 export default function EnhancedTable(props) {
- console.log("hmmmm",props.data.length)
+  const navigate = useNavigate();
+ 
  
   const classes = useStyles();
   const [page, setPage] = React.useState(0);
@@ -54,8 +56,9 @@ export default function EnhancedTable(props) {
 
 
   useEffect(() => {
+    console.log("hmmmm",props.data)
     setProductData(props.data)
-  }, []);
+  });
   // if(props.data){
   //   const [ProductData] =  React.useState(props.data.length)
   // }
@@ -135,7 +138,7 @@ export default function EnhancedTable(props) {
                               marginLeft: "20px",
                               cursor: "pointer",
                             }}
-                            //onClick={()=> navigate("/edit")}
+                            onClick={()=> navigate("/edit")}
                           >
                             {" "}
                             Delete
