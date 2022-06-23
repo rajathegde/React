@@ -101,7 +101,7 @@ export default function EnhancedTable() {
                           
                           <Link
                             to={{
-                              pathname: "/edit",
+                              pathname: "/viewproduct",
 
                             }}
                             style={{ textDecoration: "none" }}
