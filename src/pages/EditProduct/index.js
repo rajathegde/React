@@ -9,6 +9,7 @@ import ProductImagec from "../../assets/image 9.png";
 import BrowserImage from "../../assets/log-out.png";
 import { padding } from "@mui/system";
 import { Modal } from "@mui/material";
+import APIService from "../../services/api-service";
 import UploadPopup from "../Common/popup";
 
 
@@ -17,6 +18,7 @@ const EditProduct = () => {
     height: window.innerHeight,
     width: window.innerWidth,
   });
+  const [imageArray,setImageArray]=useState([]);
   const updateWindowDimensions = () => {
     setDimensions({ width: window.innerWidth, height: window.innerHeight });
   };
@@ -24,6 +26,8 @@ const EditProduct = () => {
   const [modalImages,setModalImages] = useState("");
 
   useEffect(() => {
+    // APIService.hea.updateTag(feebackrefData).then((data) => {});
+    APIService.searchPageAPIs.getMetadata().then((data)=>{setImageArray(data.data.imageArray)});
     window.addEventListener("resize", updateWindowDimensions);
     return () => {
       window.removeEventListener("resize", updateWindowDimensions);
@@ -39,11 +43,11 @@ const EditProduct = () => {
   ];
 
   const data1 = [
-    { name: "Product ID", image: ProductImagel },
-    { name: "Product ID", image: ProductImager },
-    { name: "Product ID", image: ProductImageu },
-    { name: "Product ID", image: ProductImaged },
-    { name: "Product ID", image: ProductImagec },
+    {  image: ProductImagel },
+    // { name: "Product ID", image: ProductImager },
+    // { name: "Product ID", image: ProductImageu },
+    // { name: "Product ID", image: ProductImaged },
+    // { name: "Product ID", image: ProductImagec },
   ];
 
   return (
@@ -127,8 +131,8 @@ const EditProduct = () => {
                 justifyContent: "center",
               }}
             >
-              {data1 &&
-                data1.map((item, i) => {
+              {imageArray &&
+                imageArray.map((item, i) => {
                   return (
                     <div
                       style={{
@@ -140,12 +144,12 @@ const EditProduct = () => {
                         display: "flex",
                         flexDirection: "column",
                       }}
-                        onClick={() => {setOpenModal(true); setModalImages(item.image)}}
+                        onClick={() => {setOpenModal(true); setModalImages(item)}}
                     
 
                     >
                       <input type="checkbox" style={{ cursor: "pointer" }} />
-                      <img src={item.image} style={{height:"100px",width:"100px"}}/>
+                      <img src={item} style={{height:"100px",width:"100px"}}/>
                       <span style={{ color: " #1E4597", fontWeight: "600" ,cursor: "pointer",}}>
                       View Image
                   </span>

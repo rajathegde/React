@@ -1,14 +1,23 @@
-import React,{useState} from 'react'
+import React,{useEffect,useState} from 'react'
 import Filter from '../../assets/filter.png';
 import Search from '../../assets/search.png';
 import { Modal, Table } from '@mui/material';
 import EnhancedTable from './EnhancedTable';
+import APIService from "../../services/api-service";
 
 const DashboardChildren = ({ width, height }) => {
   const [filterModal , setOpenModalFilter] = useState(false);
+  const [allRecords,setAllrecords] = useState([]);
   const options1 = [{name: "Select Make"}, {name: "Select Make"},{name: "selectMake"},]
   const options2 = [{name: "Select Model Year"}, {name: "Select Model Year"},{name: "Select Model Year"},]
   const options3 = [{name: "Select Image Count"}, {name: "Select Image Count "},{name: "Select Image Count"},]
+
+
+  useEffect(() => {
+    // APIService.hea.updateTag(feebackrefData).then((data) => {});
+    APIService.searchPageAPIs.dashboard().then((data)=>{setAllrecords(data.data.allRecords)});
+   
+  }, []);
 
   return (
     <div style={{ width: "100%", padding: "10px 115px", boxSizing: "border-box", backgroundColor: "#E5E5E5" }}>
@@ -52,7 +61,7 @@ const DashboardChildren = ({ width, height }) => {
         <img src={Search} style={{ objectFit: "contain" }} />
       </div>
       <div style={{ marginTop: "20px" }}>
-        <EnhancedTable />
+        <EnhancedTable data={allRecords}/>
       </div>
       {filterModal && (
         <Modal

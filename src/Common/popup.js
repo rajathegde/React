@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "@material-ui/core/Button";
 import { DropzoneArea } from "material-ui-dropzone";
-
+import APIService from "../services/api-service";
 import { makeStyles } from "@material-ui/core/styles";
 
 export default function UploadPopup(props) {
@@ -30,6 +30,7 @@ export default function UploadPopup(props) {
         if (files[0] !== undefined) {
             setSelectedFile(files[0]);
             console.log("files", files[0].type);
+            
         }
     };
 
