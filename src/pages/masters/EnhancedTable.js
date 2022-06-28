@@ -23,13 +23,72 @@ export const ProductHeader = [
 ];
 
 export const ProductData = [
-  { id: "1", model:"Sonet", make: "Ecomet",year:"2002",category:"Ashok Leyland",fuelType:"Petrol",fromyear:"2002",toyear:"2002" ,count: "count" },
-  { id: "1", model:"i30", make: "Hyundai",year:"2002",category:"Ashok Leyland",fuelType:"Petrol",fromyear:"2002",toyear:"2002" ,count: "count" },
-  { id: "1", model:"Fortuner", make: "Hyundai",year:"2002",category:"Ashok Leyland",fuelType:"Petrol",fromyear:"2002",toyear:"2002" ,count: "count" },
-  { id: "1", model:"Jimny", make: "Hyundai",year:"2002",category:"Ashok Leyland",fuelType:"Petrol",fromyear:"2002",toyear:"2002" ,count: "count" },
-  { id: "1", model:"Carens", make: "Hyundai",year:"2002",category:"Ashok Leyland",fuelType:"Petrol",fromyear:"2002",toyear:"2002" ,count: "count" },
-  { id: "1", model:"i30", make: "Hyundai",year:"2002",category:"Ashok Leyland",fuelType:"Petrol",fromyear:"2002",toyear:"2002" ,count: "count" },
-
+  {
+    id: "1",
+    model: "Sonet",
+    make: "Ecomet",
+    year: "2002",
+    category: "Ashok Leyland",
+    fuelType: "Petrol",
+    fromyear: "2002",
+    toyear: "2002",
+    count: "count",
+  },
+  {
+    id: "1",
+    model: "i30",
+    make: "Hyundai",
+    year: "2002",
+    category: "Ashok Leyland",
+    fuelType: "Petrol",
+    fromyear: "2002",
+    toyear: "2002",
+    count: "count",
+  },
+  {
+    id: "1",
+    model: "Fortuner",
+    make: "Hyundai",
+    year: "2002",
+    category: "Ashok Leyland",
+    fuelType: "Petrol",
+    fromyear: "2002",
+    toyear: "2002",
+    count: "count",
+  },
+  {
+    id: "1",
+    model: "Jimny",
+    make: "Hyundai",
+    year: "2002",
+    category: "Ashok Leyland",
+    fuelType: "Petrol",
+    fromyear: "2002",
+    toyear: "2002",
+    count: "count",
+  },
+  {
+    id: "1",
+    model: "Carens",
+    make: "Hyundai",
+    year: "2002",
+    category: "Ashok Leyland",
+    fuelType: "Petrol",
+    fromyear: "2002",
+    toyear: "2002",
+    count: "count",
+  },
+  {
+    id: "1",
+    model: "i30",
+    make: "Hyundai",
+    year: "2002",
+    category: "Ashok Leyland",
+    fuelType: "Petrol",
+    fromyear: "2002",
+    toyear: "2002",
+    count: "count",
+  },
 ];
 
 const useStyles = makeStyles({
@@ -80,7 +139,10 @@ export default function EnhancedTable() {
           </TableHead>
           <TableBody>
             {ProductData.length !== 0 &&
-              ProductData.map((row, index) => (
+              ProductData.slice(
+                page * 5,
+                page * 5 + 5
+              ).map((row, index) => (
                 <>
                   <TableRow>
                     {ProductHeader.map((header, index) =>
@@ -103,7 +165,6 @@ export default function EnhancedTable() {
                             {" "}
                             Delete
                           </span>
-                          
                         </TableCell>
                       ) : (
                         <>
@@ -118,10 +179,10 @@ export default function EnhancedTable() {
         </Table>
       </TableContainer>
       <TablePagination
-        rowsPerPageOptions={[10, 25, 100]}
+        rowsPerPageOptions={[]}
         component="div"
         count={ProductData.length}
-        rowsPerPage={rowsPerPage}
+        rowsPerPage={5}
         page={page}
         onPageChange={handleChangePage}
         onRowsPerPageChange={handleChangeRowsPerPage}

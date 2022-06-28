@@ -94,7 +94,7 @@ export default function EnhancedTable(props) {
           </TableHead>
           <TableBody>
             {ProductData.length !== 0 &&
-              ProductData.map((row, index) => (
+              ProductData.slice(page * 5, page * 5 + 5).map((row, index) => (
                 <>
                   <TableRow>
                     {ProductHeader.map((header, index) =>
@@ -157,10 +157,10 @@ export default function EnhancedTable(props) {
         </Table>
       </TableContainer>
       <TablePagination
-        rowsPerPageOptions={[10, 25, 100]}
+        rowsPerPageOptions={[]}
         component="div"
         count={ProductData.length}
-        rowsPerPage={rowsPerPage}
+        rowsPerPage={5}
         page={page}
         onPageChange={handleChangePage}
         onRowsPerPageChange={handleChangeRowsPerPage}
