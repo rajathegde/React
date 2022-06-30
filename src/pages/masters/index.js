@@ -20,14 +20,10 @@ const Masters = () => {
     };
   }, []);
   return (
-    <div style={{width:dimensions.width , height: dimensions.height}}>
-        <Navbar />
 
         <div style={{width: '100%' , display: 'flex'}}>
-          <Sidebar width={dimensions.width} height={dimensions.height} />
           <DashboardChildren  width={dimensions.width} height={dimensions.height}/>
            
-        </div>
 
 
     </div>

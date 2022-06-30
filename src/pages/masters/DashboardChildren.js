@@ -32,7 +32,7 @@ const DashboardChildren = ({ width, height }) => {
   return (
     <div
       style={{
-        width: "80%",
+        width: "100%",
         height: height - 70,
         padding: "10px 50px",
         boxSizing: "border-box",

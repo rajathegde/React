@@ -19,16 +19,12 @@ const VehicleMapping = () => {
     };
   }, []);
   return (
-    <div style={{ width: dimensions.width, minHeight: dimensions.height }}>
-      <Navbar />
 
       <div style={{ width: "100%", display: "flex" }}>
-        <Sidebar width={dimensions.width} minHeight={dimensions.height} />
         <VehicleMappingBody
           width={dimensions.width}
           minHeight={dimensions.height}
         />
-      </div>
     </div>
   );
 };
