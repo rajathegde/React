@@ -1,6 +1,6 @@
-import React from "react";
+// import React from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
-
+import React, { Component, Fragment } from 'react';
 import Dashboard from "../pages/Dashboard/index";
 import Viewproduct from "../pages/Viewproduct/index";
 import EditProduct from "../pages/EditProduct";
