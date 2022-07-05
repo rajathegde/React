@@ -101,10 +101,9 @@ export default function EnhancedTable(props) {
                       header.key === "actions" ? (
                         <TableCell align="left" style={{ color: "#1E4597" }}>
                           <Link
-                            to={{
-                              pathname: "/viewproduct",
-
-                            }}
+                            // to={{ pathname: ('/viewproduct'), state: { from: "the-page-id"} }}
+                            to={`/viewproduct`}
+                            state={{ data: row }}
                             style={{ textDecoration: "none" }}
                           ><span
                             style={{
@@ -117,10 +116,8 @@ export default function EnhancedTable(props) {
                           </span> </Link>
                           
                           <Link
-                            to={{
-                              pathname: "/viewproduct",
-
-                            }}
+                            to={`/edit`}
+                            state={{ data: row }}
                             style={{ textDecoration: "none" }}
                           ><span
                             style={{
@@ -129,20 +126,25 @@ export default function EnhancedTable(props) {
                               color:"#1E4597"
                              }}
                           >
+
+{/* <Link to={{ pathname: ('/viewproduct'), state: { id: record.id.$oid} }}>  */}
                               Edit
                           </span> </Link>
 
-                          { <span
+                          <Link
+                            to={`/edit`}
+                            state={{ data: row }}
+                            style={{ textDecoration: "none" }}
+                          ><span
                             style={{
                               cursor: "pointer",
                               marginLeft: "20px",
-                              cursor: "pointer",
-                            }}
-                            onClick={()=> navigate("/edit")}
+                              color:"#1E4597"
+                             }}
                           >
                             {" "}
                             Delete
-                          </span> }
+                            </span> </Link>
                         </TableCell>
                       ) : (
                           <>
@@ -168,3 +170,5 @@ export default function EnhancedTable(props) {
     </Paper>
   );
 }
+
+
