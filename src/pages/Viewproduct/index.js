@@ -53,13 +53,12 @@ const Viewproduct = () => {
     { name: "Product ID", image: ProductImaged },
     { name: "Product ID", image: ProductImagec },
   ];
-
   return (
     <div style={{ width: dimensions.width, height: dimensions.height }}>
       <Navbar />
 
       <div style={{ width: "100%", display: "flex" }}>
-        <Sidebar width={dimensions.width} height={dimensions.height} />
+        {/* <Sidebar width={dimensions.width} height={dimensions.height} /> */}
 
         <div
           style={{

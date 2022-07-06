@@ -53,7 +53,7 @@ const EditProduct = () => {
 
       
       <div style={{ width: "100%", display: "flex" }}>
-        <Sidebar width={dimensions.width} height={dimensions.height} />
+        {/* <Sidebar width={dimensions.width} height={dimensions.height} /> */}
 
         <div
           style={{
