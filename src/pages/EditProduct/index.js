@@ -55,7 +55,7 @@ const EditProduct = () => {
       <Navbar />
 
       
-      <div style={{ width: "100%", display: "flex" }}>
+     <div style={{ width: "100%", display: "flex" }}>
         <Sidebar width={dimensions.width} height={dimensions.height} />
 
         <div

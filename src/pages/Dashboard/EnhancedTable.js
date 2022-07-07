@@ -130,7 +130,8 @@ export default function EnhancedTable(props) {
                              }}
                           >
                               Edit
-                          </span> </Link>
+                          </span>
+                           </Link>
 
                           { <span
                             style={{
