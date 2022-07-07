@@ -13,15 +13,21 @@ const requestServer = function (
 	let defaultHeaders = {
 		Accept: "application/json",
 		"Content-Type": contentType || "application/json",
+		// 'Access-Control-Allow-Origin' : '*'
 	};
 	console.log(
 		"auth token................",
 		window.localStorage.getItem("authtoken"),
 		noAuth
 	);
-	if (!noAuth) {
+	if (noAuth) {
 		defaultHeaders["authorization"] = "tVsT0ken;Cata!0g";
 	}
+	// if(method==="POST"){
+	// 	// defaultHeaders["Access-Control-Allow-Origin"] = '*';
+	// 	defaultHeaders['Access-Control-Allow-Origin']= '*';
+	// 	// defaultHeaders['Access-Control-Allow-Credentials']= 'true';
+	// }
 	var params = {
 		method: method || "GET",
 		headers: Object.assign(defaultHeaders),

@@ -8,16 +8,44 @@ import APIService from "../../services/api-service";
 const DashboardChildren = ({ width, height }) => {
   const [filterModal , setOpenModalFilter] = useState(false);
   const [allRecords,setAllrecords] = useState([]);
-  const options1 = [{name: "Select Make"}, {name: "Select Make"},{name: "selectMake"},]
-  const options2 = [{name: "Select Model Year"}, {name: "Select Model Year"},{name: "Select Model Year"},]
-  const options3 = [{name: "Select Image Count"}, {name: "Select Image Count "},{name: "Select Image Count"},]
+  const [modelArray,setModelArray] = useState([]);
+  const [makeArray,setMakeArray] = useState([]);
+  const [countArray,setCountArray] = useState([]);
+  // const options1 = [{name: "Select Make"}, {name: "Select Make"},{name: "selectMake"},]
+  // const options2 = [{name: "Select Model Year"}, {name: "Select Model Year"},{name: "Select Model Year"},]
+  // const options3 = [{name: "Select Image Count"}, {name: "Select Image Count "},{name: "Select Image Count"},]
 
 
   useEffect(() => {
     // APIService.hea.updateTag(feebackrefData).then((data) => {});
-    APIService.searchPageAPIs.dashboard().then((data)=>{setAllrecords(data.data.allRecords)});
+    APIService.searchPageAPIs.dashboard().then((data)=>{
+      console.log("heyyyy",data.data.modelArray)
+      console.log("heyyyyy",data.data.allRecords)
+      if(data){
+        setAllrecords(data.data.allRecords);
+        setModelArray(data.data.modelArray);
+        setMakeArray(data.data.makeArray);
+        setCountArray(data.data.countArray);
+      }
+      
+    });
    
   }, []);
+
+  const onFilterHandler = () => {
+    const payload = {
+      "model":"2020",
+      "count":1,
+      "make":"null"
+  }
+    APIService.searchPageAPIs.filterData(payload).then((data)=>{
+      // console.log("heyyyy",data.data.modelArray)
+      setAllrecords(data.data.allRecords);
+      // setModelArray(data.data.modelArray);
+      // setMakeArray(data.data.makeArray);
+      // setCountArray(data.data.countArray);
+    });
+  }
 
   return (
     <div style={{ width: "100%", padding: "10px 115px", boxSizing: "border-box", backgroundColor: "#E5E5E5" }}>
@@ -94,8 +122,8 @@ const DashboardChildren = ({ width, height }) => {
 
             
                 <select  type="select"   style={{ outline:"none" , width: "100%" , height: "50px" , border:"1px solid grey"  , padding: "0px 10px" , marginBottom:"10px"}}  >
-                {options1 &&
-              options1.map ((option, index) => {
+                {makeArray &&
+              makeArray.map ((option, index) => {
                 return (
                   <option
                     key={index}
@@ -104,16 +132,16 @@ const DashboardChildren = ({ width, height }) => {
                       color: "black",
                       backgroundColor: "white",
                     }}
-                    value={option.name}
+                    value={option}
                   >
-                    {option.name}
+                    {option}
                   </option>
                 );
               })}
                 </select>
                 <select  type="select"   style={{ outline:"none" , width: "100%" , height: "50px" , border:"1px solid grey"  , padding: "0px 10px", marginBottom:"10px"}}  >
-                {options2 &&
-              options2.map((option, index) => {
+                {modelArray &&
+              modelArray.map((option, index) => {
                 return (
                   <option
                     key={index}
@@ -122,16 +150,16 @@ const DashboardChildren = ({ width, height }) => {
                       color: "black",
                       backgroundColor: "white",
                     }}
-                    value={option.name}
+                    value={option}
                   >
-                    {option.name}
+                    {option}
                   </option>
                 );
               })}
                 </select>
                 <select  type="select"   style={{ outline:"none" , width: "100%" , height: "50px" , border:"1px solid grey"  , padding: "0px 10px", marginBottom:"10px"}}  >
-                {options3 &&
-              options3.map((option, index) => {
+                {countArray &&
+              countArray.map((option, index) => {
                 return (
                   <option
                     key={index}
@@ -140,9 +168,10 @@ const DashboardChildren = ({ width, height }) => {
                       color: "black",
                       backgroundColor: "white",
                     }}
-                    value={option.name}
+                    value={option}
+                    // onClick = {(e)=>}
                   >
-                    {option.name}
+                    {option}
                   </option>
                 );
               })}
@@ -165,6 +194,7 @@ const DashboardChildren = ({ width, height }) => {
             </button>
 
             <button
+              onClick={onFilterHandler}
               style={{
                 backgroundColor: "#1E4597",
                 width: "220px",

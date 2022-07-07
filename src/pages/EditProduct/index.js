@@ -11,9 +11,12 @@ import { padding } from "@mui/system";
 import { Modal } from "@mui/material";
 import APIService from "../../services/api-service";
 import UploadPopup from "../Common/popup";
-
+import { useLocation } from "react-router-dom";
 
 const EditProduct = () => {
+  const location = useLocation();
+  const displayData = location.state.data;
+  const partNumber = displayData.partno;
   const [dimensions, setDimensions] = useState({
     height: window.innerHeight,
     width: window.innerWidth,
@@ -27,20 +30,14 @@ const EditProduct = () => {
 
   useEffect(() => {
     // APIService.hea.updateTag(feebackrefData).then((data) => {});
-    APIService.searchPageAPIs.getMetadata().then((data)=>{setImageArray(data.data.imageArray)});
+    APIService.searchPageAPIs.getMetadata({partNumber}).then((data)=>{setImageArray(data.data.imageArray)});
     window.addEventListener("resize", updateWindowDimensions);
     return () => {
       window.removeEventListener("resize", updateWindowDimensions);
     };
   }, []);
 
-  const data = [
-    { name: "Product ID", value: "123456789" },
-    { name: "Name", value: "Horn" },
-    { name: "Make", value: "TVS" },
-    { name: "Model", value: "2019" },
-    { name: "ImageCount", value: "5" },
-  ];
+  const data = ["Product ID","Name","Make","Model","Image Count"]
 
   const data1 = [
     {  image: ProductImagel },
@@ -55,8 +52,8 @@ const EditProduct = () => {
       <Navbar />
 
       
-     <div style={{ width: "100%", display: "flex" }}>
-        <Sidebar width={dimensions.width} height={dimensions.height} />
+      <div style={{ width: "100%", display: "flex" }}>
+        {/* <Sidebar width={dimensions.width} height={dimensions.height} /> */}
 
         <div
           style={{
@@ -100,8 +97,7 @@ const EditProduct = () => {
                 borderBottom: "1px solid lightgrey",
               }}
             >
-              {data &&
-                data.map((item, i) => {
+              {Object.keys(displayData).map((key,i) => {
                   return (
                     <div
                       style={{
@@ -112,11 +108,10 @@ const EditProduct = () => {
                         paddingBottom: "20px",
                       }}
                     >
-                      <p style={{ color: "black" }}>{item.name}</p>
-                      <p>{item.value}</p>
-                      
+                      <p style={{ color: "black" }}>{data[i]}</p>
+                      <p>{displayData[key]}</p>
                     </div>
-                  );
+                  );     
                 })}
             </div>
             <div

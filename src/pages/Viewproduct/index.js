@@ -8,8 +8,18 @@ import ProductImaged from "../../assets/image 8.png";
 import ProductImagec from "../../assets/image 9.png";
 import Modal from "@mui/material/Modal";
 import { Navigate, useNavigate } from "react-router";
-
+import { useLocation } from "react-router-dom";
+import APIService from "../../services/api-service";
 const Viewproduct = () => {
+  const location = useLocation();
+  // const { data } = location.state;
+  // console.log(from); // output: "the-page-id"
+ 
+  const displayData = location.state.data;
+  const partNumber = displayData.partno;
+  // console.log("props_heyyy",displayData.vehiclecategory);
+  const [imageArray,setImageArray]=useState([]);
+  const [actualImageArray,setActualImageArray]=useState([]);
   const [dimensions, setDimensions] = useState({
     height: window.innerHeight,
     width: window.innerWidth,
@@ -18,22 +28,28 @@ const Viewproduct = () => {
     setDimensions({ width: window.innerWidth, height: window.innerHeight });
   };
   const [openModal, setOpenModal] = useState(false);
-
+  const [selectedImage,setSelectedImage] = useState([]);
+  // const selectedImageArray = [];
   useEffect(() => {
+    APIService.searchPageAPIs.getMetadata({partNumber}).then((data)=>{
+      setImageArray(data.data.imageArray);
+      setActualImageArray(data.data.actual);
+    });
+    // console.log("props_heyyy",props)
     window.addEventListener("resize", updateWindowDimensions);
     return () => {
       window.removeEventListener("resize", updateWindowDimensions);
     };
   }, []);
   const navigate = useNavigate();
-
-  const data = [
-    { name: "Product ID", value: "123456789" },
-    { name: "Name", value: "Horn" },
-    { name: "Make", value: "TVS" },
-    { name: "Model", value: "2019" },
-    { name: "Image Count", value: "5" },
-  ];
+  const data = ["Product ID","Name","Make","Model","Image Count"]
+  // const data = [
+  //   { name: "Product ID", value: "123456789" },
+  //   { name: "Name", value: "Horn" },
+  //   { name: "Make", value: "TVS" },
+  //   { name: "Model", value: "2019" },
+  //   { name: "Image Count", value: "5" },
+  // ];
 
   const data1 = [
     { name: "Product ID", image: ProductImagel },
@@ -43,12 +59,29 @@ const Viewproduct = () => {
     { name: "Product ID", image: ProductImagec },
   ];
 
+  const imageSelectionHandler = (e,url) => {
+    let selectedImageArray = selectedImage;
+    if(e.target.checked){
+      selectedImageArray.push(url)
+    }else{
+      selectedImageArray.pop(url)
+    }
+    // console.log("hehduedheudh",selectedImageArray)
+    setSelectedImage(selectedImageArray);
+  }
+
+  const deleteHandler = () =>{
+    console.log("hehduedheudh",selectedImage)
+    APIService.searchPageAPIs.deleteImage({partNumber:partNumber,image_to_remove:selectedImage}).then((data)=>{
+      console.log("data",data)
+    });
+  }
   return (
     <div style={{ width: dimensions.width, height: dimensions.height }}>
       <Navbar />
 
       <div style={{ width: "100%", display: "flex" }}>
-        <Sidebar width={dimensions.width} height={dimensions.height} />
+        {/* <Sidebar width={dimensions.width} height={dimensions.height} /> */}
 
         <div
           style={{
@@ -92,8 +125,7 @@ const Viewproduct = () => {
                 borderBottom: "1px solid lightgrey",
               }}
             >
-              {data &&
-                data.map((item, i) => {
+                {Object.keys(displayData).map((key,i) => {
                   return (
                     <div
                       style={{
@@ -104,10 +136,10 @@ const Viewproduct = () => {
                         paddingBottom: "20px",
                       }}
                     >
-                      <p style={{ color: "black" }}>{item.name}</p>
-                      <p>{item.value}</p>
+                      <p style={{ color: "black" }}>{data[i]}</p>
+                      <p>{displayData[key]}</p>
                     </div>
-                  );
+                  );     
                 })}
             </div>
             <div
@@ -122,8 +154,8 @@ const Viewproduct = () => {
                 justifyContent: "center",
               }}
             >
-              {data1 &&
-                data1.map((item, i) => {
+              {imageArray &&
+                imageArray.map((item, i) => {
                   return (
                     <div
                       style={{
@@ -136,8 +168,8 @@ const Viewproduct = () => {
                         flexDirection: "column",
                       }}
                     >
-                      <input type="checkbox" style={{ cursor: "pointer" }} />
-                      <img src={item.image} />
+                      <input type="checkbox" onChange={(e)=>imageSelectionHandler(e,item.url)} style={{ cursor: "pointer" }} />
+                      <img src={item.signedUrl} />
                     </div>
                   );
                 })}
@@ -165,7 +197,11 @@ const Viewproduct = () => {
                 cursor: "pointer",
                 
               }}
-              onClick={() => navigate("/Edit")}
+              onClick={() => navigate("/Edit",
+              {
+                state: { data: displayData },
+              }
+            )}
             >
               Edit
             </button>
@@ -229,7 +265,7 @@ const Viewproduct = () => {
                 cursor: "pointer",
                 backgroundColor: "white",
               }}
-              onClick={() => setOpenModal(true)}
+              onClick={() => deleteHandler()}
             >
               Yes
             </button>

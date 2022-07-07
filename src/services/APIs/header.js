@@ -20,7 +20,46 @@ internals.getMetadata = function (data) {
 	return requestServer(
 		"/api/imageList?key=AIzaSyDOLvGeM1aYlsUllm-rz1URvngRYzcFlIQ",
 		data,
-		"GET",
+		"POST",
+		{},
+		null,
+		null,
+		true,
+		CONFIG.ENV
+	);
+};
+
+internals.filterData = function (data) {
+	return requestServer(
+		"/api/filterData?key=AIzaSyDOLvGeM1aYlsUllm-rz1URvngRYzcFlIQ",
+		data,
+		"POST",
+		{},
+		null,
+		null,
+		true,
+		CONFIG.ENV
+	);
+};
+
+internals.filterData = function (data) {
+	return requestServer(
+		"/api/filterData?key=AIzaSyDOLvGeM1aYlsUllm-rz1URvngRYzcFlIQ",
+		data,
+		"POST",
+		{},
+		null,
+		null,
+		true,
+		CONFIG.ENV
+	);
+};
+
+internals.deleteImage = function (data) {
+	return requestServer(
+		"/api/delete?key=AIzaSyDOLvGeM1aYlsUllm-rz1URvngRYzcFlIQ",
+		data,
+		"POST",
 		{},
 		null,
 		null,
