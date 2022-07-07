@@ -169,6 +169,7 @@ const DashboardChildren = ({ width, height }) => {
                       backgroundColor: "white",
                     }}
                     value={option}
+                    // onClick = {(e)=>}
                   >
                     {option}
                   </option>

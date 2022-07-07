@@ -20,7 +20,7 @@ const requestServer = function (
 		window.localStorage.getItem("authtoken"),
 		noAuth
 	);
-	if (!noAuth) {
+	if (noAuth) {
 		defaultHeaders["authorization"] = "tVsT0ken;Cata!0g";
 	}
 	// if(method==="POST"){

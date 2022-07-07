@@ -19,6 +19,7 @@ const Viewproduct = () => {
   const partNumber = displayData.partno;
   // console.log("props_heyyy",displayData.vehiclecategory);
   const [imageArray,setImageArray]=useState([]);
+  const [actualImageArray,setActualImageArray]=useState([]);
   const [dimensions, setDimensions] = useState({
     height: window.innerHeight,
     width: window.innerWidth,
@@ -27,9 +28,13 @@ const Viewproduct = () => {
     setDimensions({ width: window.innerWidth, height: window.innerHeight });
   };
   const [openModal, setOpenModal] = useState(false);
-
+  const [selectedImage,setSelectedImage] = useState([]);
+  // const selectedImageArray = [];
   useEffect(() => {
-    APIService.searchPageAPIs.getMetadata({partNumber}).then((data)=>{setImageArray(data.data.imageArray)});
+    APIService.searchPageAPIs.getMetadata({partNumber}).then((data)=>{
+      setImageArray(data.data.imageArray);
+      setActualImageArray(data.data.actual);
+    });
     // console.log("props_heyyy",props)
     window.addEventListener("resize", updateWindowDimensions);
     return () => {
@@ -53,6 +58,24 @@ const Viewproduct = () => {
     { name: "Product ID", image: ProductImaged },
     { name: "Product ID", image: ProductImagec },
   ];
+
+  const imageSelectionHandler = (e,url) => {
+    let selectedImageArray = selectedImage;
+    if(e.target.checked){
+      selectedImageArray.push(url)
+    }else{
+      selectedImageArray.pop(url)
+    }
+    // console.log("hehduedheudh",selectedImageArray)
+    setSelectedImage(selectedImageArray);
+  }
+
+  const deleteHandler = () =>{
+    console.log("hehduedheudh",selectedImage)
+    APIService.searchPageAPIs.deleteImage({partNumber:partNumber,image_to_remove:selectedImage}).then((data)=>{
+      console.log("data",data)
+    });
+  }
   return (
     <div style={{ width: dimensions.width, height: dimensions.height }}>
       <Navbar />
@@ -145,8 +168,8 @@ const Viewproduct = () => {
                         flexDirection: "column",
                       }}
                     >
-                      <input type="checkbox" style={{ cursor: "pointer" }} />
-                      <img src={item} />
+                      <input type="checkbox" onChange={(e)=>imageSelectionHandler(e,item.url)} style={{ cursor: "pointer" }} />
+                      <img src={item.signedUrl} />
                     </div>
                   );
                 })}
@@ -242,7 +265,7 @@ const Viewproduct = () => {
                 cursor: "pointer",
                 backgroundColor: "white",
               }}
-              onClick={() => setOpenModal(true)}
+              onClick={() => deleteHandler()}
             >
               Yes
             </button>
