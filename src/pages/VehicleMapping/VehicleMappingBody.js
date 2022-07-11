@@ -3,14 +3,14 @@ import TextField from "@mui/material/TextField";
 import EnhancedTable from "../VehicleMapping/EnhancedTable";
 import { makeStyles } from "@emotion/styled";
 
-const VehicleMappingBody = ({ width, height }) => {
+const VehicleMappingBody = ({ width, minHeight }) => {
   const [currentStep, setCurrentStep] = useState(0);
 
   return (
     <div
       style={{
         width: "100%",
-        minHeight:height - 70,
+        minHeight:minHeight - 70,
         padding: "10px 50px",
         boxSizing: "border-box",
         backgroundColor: "#E5E5E5",

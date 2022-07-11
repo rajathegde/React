@@ -21,7 +21,7 @@ const VehicleMapping = () => {
   }, []);
   return (
 
-      <div style={{ width: "100%", display: "flex" }}>
+      <div style={{ width: "100%", display: "flex",backgroundColor:"red" }}>
         <VehicleMappingBody
           width={dimensions.width}
           minHeight={dimensions.height}
