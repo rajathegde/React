@@ -55,7 +55,7 @@ export default function EnhancedTable() {
 
   return (
     <Paper sx={{ width: "100%", overflow: "hidden" }}>
-      <TableContainer sx={{ maxHeight: window.innerHeight * 0.4 }}>
+      <TableContainer sx={{ maxHeight: window.innerHeight * 0.2}}>
         <Table stickyHeader aria-label="sticky table" className={classes.table}>
           <TableHead>
             <TableRow>

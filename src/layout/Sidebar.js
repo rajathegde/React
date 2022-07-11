@@ -11,14 +11,14 @@ const SidebarData = [
   { name: "Masters", image: Masters, pathName: "/masters" },
 ];
 
-const Sidebar = ({ width, minHeight }) => {
+const Sidebar = ({ width, height}) => {
   const location = useLocation();
   return (
     <div
       style={{
         width: "20%",
         backgroundColor: "#1E4597",
-        minHeight: minHeight - 70,
+        height: height - 70,
         padding: "20px 0px",
         boxSizing: "border-box",
         display: "flex",

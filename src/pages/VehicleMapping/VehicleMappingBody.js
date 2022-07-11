@@ -3,14 +3,14 @@ import TextField from "@mui/material/TextField";
 import EnhancedTable from "../VehicleMapping/EnhancedTable";
 import { makeStyles } from "@emotion/styled";
 
-const VehicleMappingBody = ({ width, height }) => {
+const VehicleMappingBody = ({ width, minHeight }) => {
   const [currentStep, setCurrentStep] = useState(0);
 
   return (
     <div
       style={{
         width: "100%",
-        height: height - 70,
+        minHeight:minHeight - 70,
         padding: "10px 50px",
         boxSizing: "border-box",
         backgroundColor: "#E5E5E5",
@@ -79,8 +79,9 @@ const VehicleMappingBody = ({ width, height }) => {
               fontSize: "18px",
               color: currentStep === 0 ? "black" : "white",
               marginTop: -25,
-              backgroundColor: "white",
+              backgroundColor: " #1E4597",
             }}
+            onClick={() => {setCurrentStep(2); }}
           >
             2
           </div>
@@ -96,8 +97,9 @@ const VehicleMappingBody = ({ width, height }) => {
               fontSize: "18px",
               color: currentStep === 0 || currentStep === 1 ? "black" : "white",
               marginTop: -25,
-              backgroundColor: "white",
+              backgroundColor: "#1E4597",
             }}
+            onClick={() => {setCurrentStep(3); }}
           >
             3
           </div>
