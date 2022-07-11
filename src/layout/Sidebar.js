@@ -7,7 +7,7 @@ import { Link, useLocation } from "react-router-dom";
 
 const SidebarData = [
   { name: "Products", image: Product, pathName: "/dashboard" },
-  { name: "Vehicle Mapping", image: Car, pathName: "/vehiclemapping" },
+  { name: "Vehicle Mapping", image: Car, pathName: "/vehicle" },
   { name: "Masters", image: Masters, pathName: "/masters" },
 ];
 
