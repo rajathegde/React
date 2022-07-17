@@ -10,16 +10,18 @@ import Modal from "@mui/material/Modal";
 import { Navigate, useNavigate } from "react-router";
 import { useLocation } from "react-router-dom";
 import APIService from "../../services/api-service";
+import { ImageStyle } from "../../styles/style"
+
 const Viewproduct = () => {
   const location = useLocation();
   // const { data } = location.state;
   // console.log(from); // output: "the-page-id"
- 
+
   const displayData = location.state.data;
   const partNumber = displayData.partno;
   // console.log("props_heyyy",displayData.vehiclecategory);
-  const [imageArray,setImageArray]=useState([]);
-  const [actualImageArray,setActualImageArray]=useState([]);
+  const [imageArray, setImageArray] = useState([]);
+  const [actualImageArray, setActualImageArray] = useState([]);
   const [dimensions, setDimensions] = useState({
     height: window.innerHeight,
     width: window.innerWidth,
@@ -28,10 +30,10 @@ const Viewproduct = () => {
     setDimensions({ width: window.innerWidth, height: window.innerHeight });
   };
   const [openModal, setOpenModal] = useState(false);
-  const [selectedImage,setSelectedImage] = useState([]);
+  const [selectedImage, setSelectedImage] = useState([]);
   // const selectedImageArray = [];
   useEffect(() => {
-    APIService.searchPageAPIs.getMetadata({partNumber}).then((data)=>{
+    APIService.searchPageAPIs.getMetadata({ partNumber }).then((data) => {
       setImageArray(data.data.imageArray);
       setActualImageArray(data.data.actual);
     });
@@ -42,7 +44,7 @@ const Viewproduct = () => {
     };
   }, []);
   const navigate = useNavigate();
-  const data = ["Product ID","Name","Make","Model","Image Count"]
+  const data = ["Product ID", "Name", "Make", "Model", "Image Count"]
   // const data = [
   //   { name: "Product ID", value: "123456789" },
   //   { name: "Name", value: "Horn" },
@@ -59,25 +61,25 @@ const Viewproduct = () => {
     { name: "Product ID", image: ProductImagec },
   ];
 
-  const imageSelectionHandler = (e,url) => {
+  const imageSelectionHandler = (e, url) => {
     let selectedImageArray = selectedImage;
-    if(e.target.checked){
+    if (e.target.checked) {
       selectedImageArray.push(url)
-    }else{
+    } else {
       selectedImageArray.pop(url)
     }
     // console.log("hehduedheudh",selectedImageArray)
     setSelectedImage(selectedImageArray);
   }
 
-  const deleteHandler = () =>{
-    console.log("hehduedheudh",selectedImage)
-    APIService.searchPageAPIs.deleteImage({partNumber:partNumber,image_to_remove:selectedImage}).then((data)=>{
-      console.log("data",data)
+  const deleteHandler = () => {
+    console.log("hehduedheudh", selectedImage)
+    APIService.searchPageAPIs.deleteImage({ partNumber: partNumber, image_to_remove: selectedImage }).then((data) => {
+      console.log("data", data)
     });
   }
   return (
-    <div style={{ width: dimensions.width, height: dimensions.height }}>
+    <div style={{ width: dimensions.width, height: dimensions.height, maxWidth: "100%" }}>
       <Navbar />
 
       <div style={{ width: "100%", display: "flex" }}>
@@ -125,22 +127,22 @@ const Viewproduct = () => {
                 borderBottom: "1px solid lightgrey",
               }}
             >
-                {Object.keys(displayData).map((key,i) => {
-                  return (
-                    <div
-                      style={{
-                        width: "20%",
-                        borderRight:
-                          data.length - 1 !== i && "1px solid lightgrey",
-                        paddingLeft: "15px",
-                        paddingBottom: "20px",
-                      }}
-                    >
-                      <p style={{ color: "black" }}>{data[i]}</p>
-                      <p>{displayData[key]}</p>
-                    </div>
-                  );     
-                })}
+              {Object.keys(displayData).map((key, i) => {
+                return (
+                  <div
+                    style={{
+                      width: "20%",
+                      borderRight:
+                        data.length - 1 !== i && "1px solid lightgrey",
+                      paddingLeft: "15px",
+                      paddingBottom: "20px",
+                    }}
+                  >
+                    <p style={{ color: "black" }}>{data[i]}</p>
+                    <p style={{ color: "black", fontWeight: 600 }}>{displayData[key]}</p>
+                  </div>
+                );
+              })}
             </div>
             <div
               style={{
@@ -157,20 +159,21 @@ const Viewproduct = () => {
               {imageArray &&
                 imageArray.map((item, i) => {
                   return (
-                    <div
-                      style={{
-                        height:"167px",
-                        width:"120px",
-                        padding:"15px",
-                        border: "1px solid lightgrey",
-                        marginRight: "20px",
-                        display: "flex",
-                        flexDirection: "column",
-                      }}
-                    >
-                      <input type="checkbox" onChange={(e)=>imageSelectionHandler(e,item.url)} style={{ cursor: "pointer" }} />
+                    // <div
+                    //   style={{
+                    //     height:"167px",
+                    //     width:"120px",
+                    //     padding:"15px",
+                    //     border: "1px solid lightgrey",
+                    //     marginRight: "20px",
+                    //     display: "flex",
+                    //     flexDirection: "column",
+                    //   }} 
+                    // >
+                    <ImageStyle>
+                      <input type="checkbox" onChange={(e) => imageSelectionHandler(e, item.url)} style={{ cursor: "pointer" }} />
                       <img src={item.signedUrl} />
-                    </div>
+                    </ImageStyle>
                   );
                 })}
             </div>
@@ -184,7 +187,7 @@ const Viewproduct = () => {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              marginTop: "20px",
+              marginTop: "50px",
             }}
           >
             <button
@@ -195,13 +198,13 @@ const Viewproduct = () => {
                 border: "1px solid #1E4597",
                 color: "#FFFFFF",
                 cursor: "pointer",
-                
+
               }}
               onClick={() => navigate("/Edit",
-              {
-                state: { data: displayData },
-              }
-            )}
+                {
+                  state: { data: displayData },
+                }
+              )}
             >
               Edit
             </button>
@@ -249,40 +252,40 @@ const Viewproduct = () => {
               padding: "15px"
             }}
           >
-               
 
-            <div style={{width: "100%" }}>
-                <p>Delete Images?</p>
-                <p>Are you sure you want to delete all images?</p>
+
+            <div style={{ width: "100%" }}>
+              <p>Delete Images?</p>
+              <p>Are you sure you want to delete all images?</p>
             </div>
             <div>
-            <button
-              style={{
-                width: "200px",
-                height: "50px",
-                border: "1px solid #1E4597",
-                color: "#1E4597",
-                cursor: "pointer",
-                backgroundColor: "white",
-              }}
-              onClick={() => deleteHandler()}
-            >
-              Yes
-            </button>
+              <button
+                style={{
+                  width: "200px",
+                  height: "50px",
+                  border: "1px solid #1E4597",
+                  color: "#1E4597",
+                  cursor: "pointer",
+                  backgroundColor: "white",
+                }}
+                onClick={() => deleteHandler()}
+              >
+                Yes
+              </button>
 
-            <button
-              style={{
-                backgroundColor: "#1E4597",
-                width: "200px",
-                height: "50px",
-                border: "1px solid #1E4597",
-                marginLeft: "20px",
-                color: "#FFFFFF",
-                cursor: "pointer",
-              }}
-            >
-              No
-            </button>
+              <button
+                style={{
+                  backgroundColor: "#1E4597",
+                  width: "200px",
+                  height: "50px",
+                  border: "1px solid #1E4597",
+                  marginLeft: "20px",
+                  color: "#FFFFFF",
+                  cursor: "pointer",
+                }}
+              >
+                No
+              </button>
             </div>
           </div>
         </Modal>
